@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portifólio | Jonathan Matos - Desenvolvedor Front-End</title>
+
+    <!--====== Google Fonts start ======-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <!--====== Google Fonts end =======-->
+
+    <!--====== CSS Stylesheet ======-->
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
     <header class="cabecalho">
+      <div class="logo"><h2>Portifólio</h2></div>
       <nav class="menu">
         <ul>
           <li><a href="about">Sobre</a></li>
@@ -16,28 +30,33 @@
           <li><a href="contact">Contato</a></li>
         </ul>
       </nav>
+      <div class="dark">
+        <i data-custom-icons="sun-black"></i>
+      </div>
     </header>
     <main>
       <section class="about">
-        <div class="about-intro">
-          <h1>Olá, eu sou o</h1>
-          <span>Jonathan Matos</span>
-          <p>Desenvolvedor Front-End | HTML| CSS3 | JavaScript.</p>
-        </div>
+        <div class="spotlight"></div>
+        <div class="container">
+          <div class="about-intro">
+            <h1>Olá, eu sou o</h1>
+            <span class="name">Jonathan Matos</span>
+            <p>Desenvolvedor Front-End | HTML| CSS3 | JavaScript.</p>
+          </div>
 
-        <div class="about-profile">
-          <img src="" alt="" />
-        </div>
+          <div class="about-profile">
+            <img src="assets/images/me.jpg" alt="" />
+          </div>
 
-        <div class="about-description">
-          <h2>Sobre Mim</h2>
-          <p>
-            Sou um desenvolvedor front-end apaixonado por criar experiências
-            digitais envolventes e funcionais. Com habilidades em HTML, CSS3 e
-            JavaScript, busco constantemente aprimorar meus conhecimentos e
-            acompanhar as tendências do mercado para entregar soluções
-            inovadoras.
-          </p>
+          <div class="about-description">
+            <p>
+              Sou um desenvolvedor front-end apaixonado por criar experiências
+              digitais envolventes e funcionais. Com habilidades em HTML, CSS3 e
+              JavaScript, busco constantemente aprimorar meus conhecimentos e
+              acompanhar as tendências do mercado para entregar soluções
+              inovadoras.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -47,54 +66,55 @@
         <div class="skills-box">
           <div class="skills_box-card">
             <p>HTML5</p>
-            <img src="assets/images/html5.svg" alt="" />
+            <img src="assets/icons/html5.svg" alt="" />
           </div>
 
           <div class="skills_box-card">
             <p>CSS3</p>
-            <img src="assets/images/css3.svg" alt="" />
+            <img src="assets/icons/css3.svg" alt="" />
           </div>
 
           <div class="skills_box-card">
             <p>JavaScript</p>
-            <img src="assets/images/javascript.svg" alt="" />
+            <img src="assets/icons/javascript.svg" alt="" />
           </div>
 
           <div class="skills_box--card">
             <p>TypeScript</p>
-            <img src="assets/images/typescript.svg" alt="" />
+            <img src="assets/icons/typescript.svg" alt="" />
           </div>
 
           <div class="skills_box--card">
             <p>Git</p>
-            <img src="assets/images/git.svg" alt="" />
+            <img src="assets/icons/git.svg" alt="" />
           </div>
 
           <div class="skills_box--card">
             <p>Bootstrap</p>
-            <img src="assets/images/bootstrap-green.svg" alt="" />
+            <img src="assets/icons/bootstrap-green.svg" alt="" />
           </div>
 
           <div class="skills_box--card">
             <p>Saas</p>
-            <img src="assets/images/sass.svg" alt="" />
+            <img src="assets/icons/sass.svg" alt="" />
           </div>
 
           <div class="skills_box--card">
             <p>React</p>
-            <img src="assets/images/react.svg" alt="" />
+            <img src="assets/icons/react.svg" alt="" />
           </div>
 
           <div class="skills_box--card">
             <p>Next.js</p>
-            <img src="assets/images/next-16.svg" alt="" />
+            <img src="assets/icons/next-16.svg" alt="" />
           </div>
         </div>
       </section>
 
       <section class="training">
-        div.training-content
-        <h2>Formação Acadêmica</h2>
+        <div class="training-content">
+          <h2>Formação Acadêmica</h2>
+        </div>
 
         <div class="training_content-card">
           <h3>Bacharelado em Ciência da Computação</h3>
@@ -147,19 +167,17 @@
         <h2>Contato</h2>
 
         <div class="contact">
-          <a href=""><img src="assets/images/gmail.svg" alt="" />Email</a>
+          <a href=""><img src="assets/icons/gmail.svg" alt="" />Email</a>
         </div>
 
         <div class="contact">
           <a href="#">
-            <img src="assets/images/linkedin.svg" alt="" />LinkedIn
+            <img src="assets/icons/linkedin.svg" alt="" />LinkedIn
           </a>
         </div>
 
         <div class="contact">
-          <a href="#">
-            <img src="assets/images/discord.svg" alt="" />Discord
-          </a>
+          <a href="#"> <img src="assets/icons/discord.svg" alt="" />Discord </a>
         </div>
       </address>
 

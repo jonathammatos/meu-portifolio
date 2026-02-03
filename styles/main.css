@@ -1,0 +1,103 @@
+/*----- Header start -----*/
+.cabecalho {
+  width: 90%;
+  margin: 0.5rem auto;
+  background: var(--bg-secondary);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  border-radius: var(--border-radius-1);
+  box-shadow: var(--border-shadow);
+  padding: 0 1rem;
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: 1fr 1fr 5rem;
+  align-items: center;
+}
+
+.cabecalho .logo h2 {
+  font-size: 2rem;
+  text-align: left;
+  padding-left: 2rem;
+  color: var(--tertiary-color);
+}
+
+.cabecalho .menu ul {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-color);
+}
+.cabecalho .menu ul li {
+  max-width: 8rem;
+  text-align: center;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--primary-color);
+  border-radius: var(--border-radius-1);
+  flex: 1;
+}
+
+.cabecalho a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+/*----- Header end -----*/
+
+/*----- About start -----*/
+.about .container {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.about .about-profile {
+  grid-column: 1;
+  grid-row: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about .about-profile img {
+  width: 90%;
+  border: 10px solid var(--primary-color);
+  border-radius: var(--border-radius-2);
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.about .about-intro {
+  grid-column: 2/3;
+}
+
+.about .about-intro h1 {
+  font-size: 2.5rem;
+  margin: 1rem 1rem 0.5rem;
+}
+
+.about .about-intro span.name {
+  display: block;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--tertiary-color);
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+.about .about-description {
+  grid-column: span 2;
+}
+
+/*----- About end -----*/
+
+/*----- Habilidades start -----*/
+.skills {
+  overflow: hidden;
+}
+
+.skills img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
