@@ -11,9 +11,11 @@
   --secondary-color: #26a612;
   --tertiary-color: #bdf2ae;
   --text-color: #fff;
+  --text-color-1: #828282;
   --bg-base: #0a0a0d;
   --bg-secondary: #171719;
   --gray-border: 1px solid rgba(70, 68, 68, 0.633);
+  --green-border: 1px solid rgba(56, 242, 27, 0.8);
   --border-shadow:
     inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.188),
     0 0 0 1px hsla(0, 2%, 13%, 0.05), 0 0.3px 0.4px hsla(0, 2%, 13%, 0.05),
@@ -21,7 +23,11 @@
 
   /* fonts */
   --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Orbitron", sans-serif;
+  --font-subtitle: "Oxanium", sans-serif;
+  --font-text: "Anonymous Pro", "Montserrat", monospace, sans-serif;
 
+  /* border radius */
   --border-radius-1: 0.5rem;
   --border-radius-2: 50%;
 }
@@ -63,22 +69,7 @@ body {
   overflow: hidden;
 }
 
-.spotlight {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 322px;
-  height: 312px;
-  background: var(--primary-color);
-  background: linear-gradient(
-    190deg,
-    var(--primary-color) 0%,
-    transparent 100%
-  );
-  border-radius: 50%;
-  -webkit-filter: blur(50px);
-  filter: blur(50px);
-  z-index: 1;
+.icon_area {
+  width: 64px;
+  height: 64px;
 }

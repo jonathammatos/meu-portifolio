@@ -1,18 +1,19 @@
 /*----- Header start -----*/
 .cabecalho {
-  width: 90%;
-  margin: 0.5rem auto;
-  background: var(--bg-secondary);
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
-  border-radius: var(--border-radius-1);
-  box-shadow: var(--border-shadow);
+  width: 100%;
+  min-height: 80px;
+  background: var(--bg-base);
+  border-bottom: var(--green-border);
   padding: 0 1rem;
   font-weight: 700;
   display: grid;
   grid-template-columns: 1fr 1fr 5rem;
   align-items: center;
 }
+
+/* Add um efeito de vidro fosco */
+/* -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);*/
 
 .cabecalho .logo h2 {
   font-size: 2rem;
@@ -41,27 +42,31 @@
   color: var(--text-color);
   text-decoration: none;
 }
+
+/* Responsividade */
+@media screen and (max-width: 600px) {
+  .cabecalho .menu {
+    display: none;
+  }
+}
 /*----- Header end -----*/
 
 /*----- About start -----*/
 .about .container {
   display: grid;
-  grid-template-columns: 25rem 1fr;
-  grid-template-rows: auto auto;
-  gap: 1rem;
+  grid-template-rows: auto;
+  gap: 0.5rem;
+  overflow: hidden;
 }
 
 .about .about-profile {
-  grid-column: 1;
   grid-row: 1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
 }
 
 .about .about-profile img {
-  width: 90%;
+  width: 50%;
   border: 10px solid var(--primary-color);
   border-radius: var(--border-radius-2);
   object-fit: cover;
@@ -69,26 +74,49 @@
 }
 
 .about .about-intro {
-  grid-column: 2/3;
+  grid-row: 2;
+  padding: 1rem;
+  font-family: var(--font-secondary);
+  text-align: center;
 }
 
 .about .about-intro h1 {
-  font-size: 2.5rem;
-  margin: 1rem 1rem 0.5rem;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 .about .about-intro span.name {
   display: block;
+  font-weight: 700;
   font-size: 2rem;
-  font-weight: 500;
-  color: var(--tertiary-color);
-  padding: 0 1rem;
-  margin-bottom: 1rem;
-}
-.about .about-description {
-  grid-column: span 2;
+  color: var(--primary-color);
+  margin: 0.5rem 0;
 }
 
+.about .about-intro p {
+  font-family: var(--text-primary);
+  color: var(--text-color-1);
+}
+
+.about .about-description {
+  grid-row: 3;
+  font-size: 1rem;
+  padding: 1rem;
+  line-height: 180%;
+  text-align: center;
+}
+
+.about .about-description h2 {
+  font-size: 2rem;
+  margin: 1rem 0 2rem;
+  font-family: var(--font-subtitle);
+  text-align: center;
+}
+
+.about .about-description p {
+  font-family: var(--text-primary);
+  color: var(--text-color-1);
+}
 /*----- About end -----*/
 
 /*----- Habilidades start -----*/
