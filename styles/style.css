@@ -17,10 +17,16 @@
   --bg-secondary: #171719;
   --gray-border: 1px solid rgba(70, 68, 68, 0.633);
   --green-border: 1px solid rgba(56, 242, 27, 0.8);
+
   --border-shadow:
     inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.188),
     0 0 0 1px hsla(0, 2%, 13%, 0.05), 0 0.3px 0.4px hsla(0, 2%, 13%, 0.05),
     0 0.9px 1.5px hsla(0, 2%, 36%, 0.045), 0 3.5px 6px hsla(0, 1%, 20%, 0.09);
+
+  --card-shadow:
+    0 4px 15px rgba(56, 242, 27, 0.3), 0 8px 20px rgba(0, 0, 0, 0.5); /* glow verde e profundidade */
+  --card-shadow-hover:
+    0 0 25px rgba(56, 242, 27, 0.8), 0 10px 30px rgba(0, 0, 0, 0.6);
 
   /* fonts */
   --font-primary: "Montserrat", sans-serif;
@@ -42,10 +48,15 @@ body.light {
   --bg-secondary: #ffffff;
   --bg-base-transparent: rgba(239, 239, 241, 0.9);
   --gray-border: 1px solid rgba(89, 88, 88, 0.633);
+
   --border-shadow:
     inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
     0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
     0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.25);
+  --card-shadow-hover:
+    0 8px 20px rgba(0, 0, 0, 0.1), 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 html,
