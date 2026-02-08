@@ -19,24 +19,52 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <header class="cabecalho">
+    <header id="menu-bar">
       <div class="logo"><h2>Portifólio</h2></div>
+
       <nav class="menu">
-        <ul>
-          <li><a href="about">Sobre</a></li>
-          <li><a href="skills">Skills</a></li>
-          <li><a href="training">Formação</a></li>
-          <li><a href="projects">Projetos</a></li>
-          <li><a href="contact">Contato</a></li>
-        </ul>
+        <div class="menu-icon">
+          <img src="assets/icons/menu.svg" alt="" />
+        </div>
+
+        <div class="menu-large">
+          <div class="theme-mode">
+            <div class="theme-icon">
+              <img src="assets/icons/sun.svg" alt="" />
+            </div>
+            <!--<p>Tema</p>-->
+          </div>
+
+          <ul class="menu-list">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#training">Formação</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="menu-mobile">
+          <div class="theme-mode">
+            <div class="theme-icon">
+              <img src="assets/icons/sun.svg" alt="" />
+            </div>
+            <p>Tema</p>
+          </div>
+
+          <ul class="menu_list-mobile">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#training">Formação</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </div>
       </nav>
-      <div class="menu-icon">
-        <!--<i data-custom-icons="sun-black"></i>-->
-        <img src="assets/icons/menu.svg" alt="" />
-      </div>
     </header>
+
     <main>
-      <section class="about">
+      <section id="about">
         <div class="container">
           <div class="about-intro">
             <h1>Olá, eu sou o</h1>
@@ -62,21 +90,21 @@
         </div>
       </section>
 
-      <section class="skills">
+      <section id="skills">
         <h2>Habilidades</h2>
 
         <div class="skills-box">
-          <div class="skills_box-card">
+          <div class="skills_box--card">
             <p>HTML5</p>
             <img src="assets/icons/html5.svg" alt="" />
           </div>
 
-          <div class="skills_box-card">
+          <div class="skills_box--card">
             <p>CSS3</p>
             <img src="assets/icons/css3.svg" alt="" />
           </div>
 
-          <div class="skills_box-card">
+          <div class="skills_box--card">
             <p>JavaScript</p>
             <img src="assets/icons/javascript.svg" alt="" />
           </div>
@@ -113,7 +141,7 @@
         </div>
       </section>
 
-      <section class="training">
+      <section id="training">
         <div class="training-content">
           <h2>Formação Acadêmica</h2>
         </div>
@@ -125,7 +153,7 @@
         </div>
       </section>
 
-      <section class="projects">
+      <section id="projects">
         <h2>Projetos</h2>
 
         <div class="projects-box">
@@ -203,5 +231,8 @@
         <p>© 2024 Jonathan Matos. Todos os direitos reservados.</p>
       </div>
     </footer>
+
+    <!--====== JavaScript ======-->
+    <script src="scripts/menu.js" defer></script>
   </body>
 </html>
