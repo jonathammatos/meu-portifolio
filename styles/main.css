@@ -51,7 +51,7 @@
   align-items: center;
   flex-direction: column;
   position: fixed;
-  top: 70px;
+  top: 78px;
   right: 0;
   width: 50%;
   height: 100vh;
@@ -264,7 +264,6 @@
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: minmax(200px, 300px) 1fr;
     gap: 1rem;
-    width: 100vw;
   }
 
   #about .container .about-profile {
@@ -304,24 +303,7 @@
 
   #about .container .about-description {
     padding-left: 2rem;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  #about .container .about-intro {
-    font-size: 1.5rem;
-    text-align: left;
-  }
-}
-
-@media screen and (min-width: 1500px) {
-  #about .container .about-intro {
-    font-size: 2rem;
-    text-align: left;
-  }
-
-  #about .container .about-description p {
-    font-size: 2.5rem;
+    padding-right: 1.5rem;
   }
 }
 
@@ -388,11 +370,7 @@
 
 /* ===== Section skills end ===== */
 
-/* ===== Section training start ===== */
-
-/* ===== Section  training end ===== */
-
-/* Section traning start */
+/* ===== Section traning start ===== */
 #training {
   width: 90%;
   height: fit-content;
@@ -439,7 +417,64 @@
   }
 }
 
-/* Section traning end */
+/* ===== Section traning end ===== */
+
+/* Section Projects start */
+
+#projects {
+  width: 90vw;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-areas:
+    "subtitle subtitle subtitle subtitle subtitle"
+    "card-1 card-2 card-3 card-4 card-5";
+
+  justify-content: center;
+  gap: 5rem;
+  text-align: center;
+}
+
+#projects h2 {
+  grid-area: subtitle;
+}
+
+#projects #card-1 {
+  grid-area: card-1;
+}
+
+#projects #card-2 {
+  grid-area: card-2;
+}
+
+#projects #card-3 {
+  grid-area: card-3;
+}
+
+#projects #card-4 {
+  grid-area: card-4;
+}
+
+#projects #card-5 {
+  grid-area: card-5;
+}
+
+#projects .project-card {
+  min-width: 200px;
+  max-width: 400px;
+  height: fit-content;
+  border: var(--green-border);
+  border-radius: var(--border-radius-1);
+}
+
+#projects .project-card img {
+  width: 100%;
+  max-width: 400;
+  max-height: 400px;
+  flex: 1;
+  object-fit: cover;
+}
+/* section Projects end */
 
 /* ===== card projects ===== */
 .project-card {

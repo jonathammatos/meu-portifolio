@@ -53,13 +53,14 @@ body.light {
   --secondary-color: #26a612;
   --tertiary-color: #b5f7a3;
   --text-color: #010101;
+  --text-color-1: #37383a;
   --bg-base: #efeff1;
-  --bg-base-1: #d2ffde;
+  --bg-base-1: rgba(180, 180, 194, 0.7);
   --bg-secondary: #ffffff;
   --bg-menu-bar: linear-gradient(
     to bottom,
     rgba(239, 239, 241, 0.95),
-    rgba(239, 239, 241, 0.85)
+    rgba(180, 180, 194, 0.7)
   );
   --bg-card: linear-gradient(
     to bottom,
@@ -122,5 +123,5 @@ main {
 /* SECTIONS — regra global */
 section {
   width: 100%;
-  padding-block: clamp(4rem, 8vw, 8rem);
+  padding-block: clamp(2.5rem, 4vw, 8rem);
 }
