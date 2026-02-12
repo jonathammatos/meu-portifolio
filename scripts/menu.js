@@ -2,7 +2,6 @@ const btnMobile = document.querySelector(".menu-icon");
 
 function toggleMenu(event) {
   if (event.type === "touchstart") event.preventDefault();
-
   const nav = document.querySelector(".menu-mobile");
   nav.classList.toggle("active");
 }
@@ -14,7 +13,6 @@ const body = document.body;
 
 const sunIconPath = "assets/icons/sun.svg";
 const moonIconPath = "assets/icons/moon.svg";
-
 //Troca tema
 function trocarTema(tipo) {
   if (tipo === true) {
@@ -29,7 +27,7 @@ function trocarTema(tipo) {
 
   iconImages.forEach((img) => {
     const newSrc = tipo ? sunIconPath : moonIconPath;
-    img.src = newSrc + "?t=" + new Date().getTime(); // Adiciona ?t=123456789
+    img.src = newSrc + "?t=" + new Date().getTime();
   });
 }
 

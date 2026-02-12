@@ -41,14 +41,14 @@
   --font-primary: "Montserrat", sans-serif;
   --font-secondary: "Orbitron", sans-serif;
   --font-subtitle: "Oxanium", sans-serif;
-  --font-text: "Anonymous Pro", monospace;
+  --font-text: "Anonymous Pro", "Montserrat", monospace, sans-serif;
 
   --radius: 0.75rem;
   --radius-1: 0.5rem;
 
   --accent-green-dark: #26a612;
   --btn-shadow: 0 6px 18px rgba(55, 242, 27, 0.35);
-  --btn-shadow-hover: 0 10px 28px rgba(55, 242, 27, 0.55);
+  --btn-shadow-hover: 0 8px 18px rgba(55, 242, 27, 0.55);
   --btn-transition: 0.3s ease;
 }
 
