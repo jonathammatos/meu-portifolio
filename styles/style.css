@@ -91,6 +91,9 @@ body {
   );
   color: var(--text-color);
   font-family: var(--font-text);
+
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
