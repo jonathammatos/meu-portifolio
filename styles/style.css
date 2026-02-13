@@ -32,7 +32,7 @@
   --green-border: 2px solid rgba(56, 242, 27, 0.6);
   --glass-blur: blur(12px);
 
-  --box-shadow: 0 0 30px rgba(55, 242, 27, 0.7);
+  --box-shadow: 0 0 20px rgba(55, 242, 27, 0.7);
   --card-shadow:
     0 0 25px rgba(56, 242, 27, 0.25), 0 10px 40px rgba(0, 0, 0, 0.6);
   --card-shadow-hover:
