@@ -26,7 +26,7 @@ btnMobile.addEventListener("touchstart", toggleMenu);
 const themeToggle = document.querySelectorAll(".theme-mode");
 const body = document.body;
 
-const sunIconPath = "assets/icons/sun.svg";
+const sunIconPath = "assets/icons/sun-black.svg";
 const moonIconPath = "assets/icons/moon.svg";
 //Troca tema
 function trocarTema(tipo) {
