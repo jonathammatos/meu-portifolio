@@ -26,8 +26,8 @@ btnMobile.addEventListener("touchstart", toggleMenu);
 const themeToggle = document.querySelectorAll(".theme-mode");
 const body = document.body;
 
-const sunIconPath = "assets/icons/sun-black.svg";
-const moonIconPath = "assets/icons/moon.svg";
+const sunIconPath = "assets/icons/sun.svg";
+const moonIconPath = "assets/icons/moon-black.svg";
 //Troca tema
 function trocarTema(tipo) {
   if (tipo === true) {
@@ -39,7 +39,7 @@ function trocarTema(tipo) {
   const iconImages = document.querySelectorAll(".theme-icon img");
 
   iconImages.forEach((img) => {
-    const newSrc = tipo ? sunIconPath : moonIconPath;
+    const newSrc = tipo ? moonIconPath : sunIconPath;
     img.src = newSrc + "?t=" + new Date().getTime();
   });
 }
