@@ -8,6 +8,7 @@
 
 :root {
   --primary-color: #37f21b;
+  --primary-rgb: 55, 242, 27;
   --secondary-color: #26a612;
   --tertiary-color: #bdf2ae;
 
@@ -84,11 +85,15 @@ body.light {
 
 html,
 body {
-  background: radial-gradient(
-    circle at top,
-    var(--bg-base-1),
-    var(--bg-base) 60%
-  );
+  background:
+    linear-gradient(rgba(var(--primary-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px),
+    radial-gradient(circle at top, var(--bg-base-1), var(--bg-base) 60%);
+  background-size:
+    48px 48px,
+    48px 48px,
+    auto;
+  background-attachment: fixed;
   color: var(--text-color);
   font-family: var(--font-text);
 
@@ -120,8 +125,11 @@ main {
 
 #skills {
   grid-area: skills;
-  width: 100vw;
-  place-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #training {

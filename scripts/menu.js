@@ -2,7 +2,7 @@ const btnMobile = document.querySelector(".menu-icon");
 const btnIcon = btnMobile.querySelector("img");
 
 function toggleMenu(event) {
-  if (event.type === "touchstart") event.preventDefault();
+  event.preventDefault();
   const nav = document.querySelector(".menu-mobile");
   const isOpen = nav.classList.toggle("active");
 
@@ -21,7 +21,7 @@ function toggleMenu(event) {
   }, 200);
 }
 
-btnMobile.addEventListener("touchstart", toggleMenu);
+btnMobile.addEventListener("click", toggleMenu);
 
 const themeToggle = document.querySelectorAll(".theme-mode");
 const body = document.body;

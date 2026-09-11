@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 80px;
   padding: 0 1rem;
   position: fixed;
@@ -88,14 +88,20 @@
 }
 
 .theme-mode {
-  /*border: var(--green-border);*/
   background: var(--bg-base-1);
-  border-radius: 50%;
-  padding: 0.4rem;
-  border-radius: var(--radius-1);
-  /*background: var(--bg-base-transparent);*/
-  backdrop-filter: blur(--glass-blur);
-  box-shadow: 0 0 15px rgba(55, 242, 27, 0.3);
+  padding: 0.5rem;
+  border: 1px solid rgba(var(--primary-rgb), 0.4);
+  border-radius: 0;
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%,
+    0 8px
+  );
+  backdrop-filter: var(--glass-blur);
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
   cursor: pointer;
   transition: 0.4s ease;
 }
@@ -110,7 +116,13 @@
   height: 32px;
   display: flex;
   align-self: center;
-  filter: drop-shadow(0 0 6px rgba(55, 242, 27, 0.8));
+  filter: none;
+  transition: filter 0.3s ease;
+}
+
+.theme-mode:hover img,
+.theme-mode:focus-visible img {
+  filter: drop-shadow(0 0 6px rgba(var(--primary-rgb), 0.8));
 }
 
 .menu_list-mobile {
@@ -161,7 +173,15 @@
     display: grid;
     place-items: center;
     padding: 0.2rem;
-    border-radius: 50%;
+    border-radius: 0;
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
     margin-right: 1rem;
     cursor: pointer;
   }
@@ -260,7 +280,7 @@
 }
 
 .about-intro #tac-animation {
-  font-size: clamp(1.2 rem, 1.5rem, 1.8rem);
+  font-size: clamp(1.2rem, 1.5rem, 1.8rem);
   text-shadow: 0 0 8px rgba(55, 242, 27, 0.6);
   color: var(--primary-color);
 }
@@ -392,9 +412,16 @@
 .skills_box--card p {
   margin-bottom: 1rem;
 }
+
 .skills_box--card img {
   width: 64px;
   height: 64px;
+  filter: brightness(0.85);
+  transition: filter 0.4s ease;
+}
+
+.skills_box--card:hover img {
+  filter: brightness(1.15) drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.6));
 }
 
 /* ===== Section skills end ===== */
@@ -432,8 +459,6 @@
   border-radius: var(--radius-1);
   box-shadow: var(--card-shadow);
 }
-
-/* ===== Responsividade ===== */
 
 /* ===== Section traning end ===== */
 
@@ -522,15 +547,22 @@
 
 #projects .card__article #rodape .local .button {
   padding: 0.75rem 1rem;
-  background-color: var(--primary-color);
-  color: var(--text-color);
+  background-color: transparent;
+  color: var(--primary-color);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-decoration: none;
-  border-radius: var(--radius-1);
-  border: none;
-  box-shadow: var(--btn-shadow);
+  border: 1px solid var(--primary-color);
+  border-radius: 0;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
   cursor: pointer;
   transition:
     transform var(--btn-transition),
@@ -539,7 +571,8 @@
 }
 
 #projects .card__article #rodape .local .button:hover {
-  background-color: var(--accent-green-dark);
+  background-color: rgba(var(--primary-rgb), 0.15);
+  color: var(--primary-color);
   transform: translateY(-2px);
   box-shadow: var(--btn-shadow-hover);
 }
@@ -621,6 +654,12 @@ footer .contact img {
   width: 36px;
   height: 36px;
   object-fit: contain;
+  filter: brightness(0.9);
+  transition: filter 0.4s ease;
+}
+
+footer .contact:hover img {
+  filter: brightness(1.15) drop-shadow(0 0 6px rgba(var(--primary-rgb), 0.6));
 }
 
 footer .copy {
