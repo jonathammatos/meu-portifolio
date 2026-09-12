@@ -3,18 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio | Jonathan Matos - Dev Front-End</title>
+    <title>Portfólio | Jonathan Matos</title>
 
-    <!--====== Google Fonts start ======-->
+    <!-- ⚡ Aplica o tema ANTES de renderizar (evita flash) -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("tema") === "light") {
+            document.documentElement.classList.add("light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Sora:wght@100..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@600;700;800&family=Oxanium:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <!--====== Google Fonts end =======-->
 
-    <!--====== CSS Stylesheet ======-->
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
@@ -22,339 +30,368 @@
     <header id="menu-bar">
       <div class="logo"><h2>Portfólio</h2></div>
 
-      <nav id="manu" class="menu">
-        <div class="menu-icon">
-          <img src="assets/icons/menu.svg" alt="" />
-        </div>
+      <ul class="menu-list">
+        <li><a href="#about" class="link is-active">Sobre</a></li>
+        <li><a href="#skills" class="link">Habilidades</a></li>
+        <li><a href="#training" class="link">Formação</a></li>
+        <li><a href="#projects" class="link">Projetos</a></li>
+        <li><a href="#contacts" class="link">Contato</a></li>
+      </ul>
 
-        <div class="menu-large">
-          <div class="theme-mode">
-            <div class="theme-icon">
-              <img src="assets/icons/sun.svg" alt="" />
-            </div>
-            <!--<p>Tema</p>-->
-          </div>
+      <div class="nav-actions">
+        <button
+          class="icon-btn theme-btn"
+          aria-label="Alternar tema"
+          type="button"
+        >
+          <svg class="icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
 
-          <ul class="menu-list">
-            <li><a href="#about" class="link">Sobre</a></li>
-            <li><a href="#skills" class="link">Habilidades</a></li>
-            <li><a href="#training" class="link">Formação</a></li>
-            <li><a href="#projects" class="link">Projetos</a></li>
-            <li><a href="#contacts" class="link">Contato</a></li>
-          </ul>
-        </div>
-
-        <div class="menu-mobile">
-          <div class="theme-mode">
-            <div class="theme-icon">
-              <img src="assets/icons/sun.svg" alt="" />
-            </div>
-            <p>Tema</p>
-          </div>
-
-          <ul class="menu_list-mobile">
-            <li><a href="#about" class="link">Sobre</a></li>
-            <li><a href="#skills" class="link">Habilidades</a></li>
-            <li><a href="#training" class="link">Formação</a></li>
-            <li><a href="#projects" class="link">Projetos</a></li>
-            <li><a href="#contacts" class="link">Contato</a></li>
-          </ul>
-        </div>
-      </nav>
+        <button class="icon-btn hamburger" aria-label="Menu" type="button">
+          <svg class="icon-menu" viewBox="0 0 24 24">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
     </header>
+
+    <div class="menu-backdrop"></div>
+
+    <div class="menu-mobile">
+      <ul>
+        <li><a href="#about" class="link is-active">Sobre</a></li>
+        <li><a href="#skills" class="link">Habilidades</a></li>
+        <li><a href="#training" class="link">Formação</a></li>
+        <li><a href="#projects" class="link">Projetos</a></li>
+        <li><a href="#contacts" class="link">Contato</a></li>
+      </ul>
+    </div>
 
     <main>
       <section id="about">
         <div class="container">
-          <div class="about-intro">
+          <div class="about-intro reveal">
             <h1>Olá, eu sou</h1>
-
             <span id="name" class="name"></span>
-            <p>Desenvolvedor Front-End <span id="tac-animation"></span></p>
+            <p>
+              Desenvolvedor Front-End <span id="role" class="accent"></span>
+            </p>
           </div>
 
-          <div class="about-profile">
-            <img src="assets/images/me.jpg" alt="" />
+          <div class="about-profile reveal">
+            <div class="avatar-wrap">
+              <div class="glow"></div>
+              <div class="ring"></div>
+              <div class="face">
+                <img src="assets/images/me.jpg" alt="Jonathan Matos" />
+              </div>
+
+              <div class="status-terminal">
+                <span class="status-dot"></span>
+                <span class="prompt">$</span>
+                <span id="terminal-text"></span>
+                <span class="cursor">▍</span>
+              </div>
+            </div>
           </div>
 
-          <div class="about-description">
+          <div class="about-description reveal">
             <h2>Sobre Mim</h2>
             <p>
-              Sou um desenvolvedor front-end apaixonado por criar experiências
-              digitais envolventes e funcionais. Com habilidades em HTML, CSS3 e
-              JavaScript, busco constantemente aprimorar meus conhecimentos e
-              acompanhar as tendências do mercado para entregar soluções
-              inovadoras.
+              Sou um <strong>desenvolvedor front-end</strong> apaixonado por
+              criar experiências digitais envolventes e funcionais. Com
+              habilidades em HTML, CSS3 e JavaScript, busco constantemente
+              aprimorar meus conhecimentos e acompanhar as tendências do mercado
+              para entregar soluções inovadoras.
             </p>
+          </div>
+
+          <div class="about-actions reveal">
+            <a href="#projects" class="btn btn-primary">▸ Ver projetos</a>
+            <a href="#contacts" class="btn btn-ghost">Falar comigo</a>
           </div>
         </div>
       </section>
 
       <section id="skills">
-        <h2>Habilidades</h2>
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Minhas <span class="accent">Habilidades</span></h2>
+          </header>
 
-        <div class="skills-container">
-          <div class="skills_box--card">
-            <p>HTML5</p>
-            <img src="assets/icons/html5.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>CSS3</p>
-            <img src="assets/icons/css3.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>JavaScript</p>
-            <img src="assets/icons/javascript.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>TypeScript</p>
-            <img src="assets/icons/typescript.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>Git</p>
-            <img src="assets/icons/git.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>Bootstrap</p>
-            <img src="assets/icons/bootstrap-green.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>Saas</p>
-            <img src="assets/icons/sass.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>React</p>
-            <img src="assets/icons/react.svg" alt="" />
-          </div>
-
-          <div class="skills_box--card">
-            <p>Next.js</p>
-            <img src="assets/icons/next-16.svg" alt="" />
+          <div class="skills-container">
+            <div class="skill-card card reveal">
+              <span class="name">HTML5</span>
+              <img class="skill-img" src="assets/icons/html5.svg" alt="" />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">CSS3</span>
+              <img class="skill-img" src="assets/icons/css3.svg" alt="" />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">JavaScript</span>
+              <img class="skill-img" src="assets/icons/javascript.svg" alt="" />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">TypeScript</span>
+              <img class="skill-img" src="assets/icons/typescript.svg" alt="" />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">Git</span>
+              <img class="skill-img" src="assets/icons/git.svg" alt="" />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">Bootstrap</span
+              ><img
+                class="skill-img"
+                src="assets/icons/bootstrap-green.svg"
+                alt=""
+              />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">Sass</span>
+              <img class="skill-img" src="assets/icons/sass.svg" alt="" />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">React</span
+              ><img class="skill-img" src="assets/icons/react.svg" alt="" />
+            </div>
+            <div class="skill-card card reveal">
+              <span class="name">Next.js</span
+              ><img class="skill-img" src="assets/icons/next-16.svg" alt="" />
+            </div>
           </div>
         </div>
       </section>
 
       <section id="training">
-        <h2>Formação</h2>
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Minha <span class="accent">Educação</span></h2>
+          </header>
 
-        <div class="training-card">
-          <h3>Bacharelado em Ciência da Computação</h3>
-          <p>Instituição: UFAPE</p>
-          <p>Curso: Incompleto</p>
+          <article class="training-card card reveal">
+            <div class="training-ic">
+              <img src="assets/icons/graduation-black.svg" alt="" />
+            </div>
+            <div class="training-info">
+              <h3>Bacharelado em Ciência da Computação</h3>
+              <p class="training-meta">UFAPE · Em andamento</p>
+              <p class="training-desc">
+                Formação com base sólida em algoritmos, estrutura de dados e
+                engenharia de software — aplicada na prática em projetos de
+                front-end.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
       <section id="projects">
-        <h2>Projetos</h2>
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Meus <span class="accent">Projetos</span></h2>
+          </header>
 
-        <div class="card-wrapper">
-          <div class="card__content">
-            <article class="card__article">
-              <div class="card__image">
-                <img src="assets/images/programmer.png" alt="" />
-              </div>
+          <div class="carousel reveal">
+            <button class="carousel-arrow prev" aria-label="Anterior">‹</button>
+            <button class="carousel-arrow next" aria-label="Próximo">›</button>
 
-              <div class="details">
-                <h3>Em Breve...</h3>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veniam, porro dolor nulla aperiam iure, sapiente eligendi est
-                  voluptate debitis eum repudiandae quidem. Voluptate possimus
-                  fugiat placeat natus asperiores ea accusamus.
-                </p>
-
-                <div id="rodape">
-                  <div class="tecnologias">
-                    <img src="assets/icons/html5.svg" alt="" />
-                    <img src="assets/icons/css3.svg" alt="" />
-                    <img src="assets/icons/javascript.svg" alt="" />
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <article class="card-article card">
+                  <div class="card-image">
+                    <span class="placeholder">Preview</span>
+                    <span class="card-badge">Em breve</span>
                   </div>
-
-                  <div class="local">
-                    <a href="#" class="button">GitHub</a>
-                    <a href="#" class="button">Projeto</a>
+                  <div class="details">
+                    <h3>Em Breve...</h3>
+                    <p>
+                      Descrição do projeto, o problema que resolve e o que foi
+                      construído.
+                    </p>
+                    <div class="tecnologias">
+                      <span class="tech-pill">HTML</span>
+                      <span class="tech-pill">CSS</span>
+                      <span class="tech-pill">JavaScript</span>
+                    </div>
+                    <div class="local">
+                      <a href="#" class="button">GitHub</a>
+                      <a href="#" class="button">Projeto</a>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </article>
+                </article>
 
-            <article class="card__article">
-              <div class="card__image">
-                <img src="assets/images/programmer.png" alt="" />
-              </div>
-
-              <div class="details">
-                <h3>Em Breve...</h3>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veniam, porro dolor nulla aperiam iure, sapiente eligendi est
-                  voluptate debitis eum repudiandae quidem. Voluptate possimus
-                  fugiat placeat natus asperiores ea accusamus.
-                </p>
-
-                <div id="rodape">
-                  <div class="tecnologias">
-                    <img src="assets/icons/html5.svg" alt="" />
-                    <img src="assets/icons/css3.svg" alt="" />
-                    <img src="assets/icons/javascript.svg" alt="" />
+                <article class="card-article card">
+                  <div class="card-image">
+                    <span class="placeholder">Preview</span>
+                    <span class="card-badge">Em breve</span>
                   </div>
-
-                  <div class="local">
-                    <a href="#" class="button">GitHub</a>
-                    <a href="#" class="button">Projeto</a>
+                  <div class="details">
+                    <h3>Em Breve...</h3>
+                    <p>
+                      Descrição do projeto, o problema que resolve e o que foi
+                      construído.
+                    </p>
+                    <div class="tecnologias">
+                      <span class="tech-pill">HTML</span>
+                      <span class="tech-pill">CSS</span>
+                      <span class="tech-pill">JavaScript</span>
+                    </div>
+                    <div class="local">
+                      <a href="#" class="button">GitHub</a>
+                      <a href="#" class="button">Projeto</a>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </article>
+                </article>
 
-            <article class="card__article">
-              <div class="card__image">
-                <img src="assets/images/programmer.png" alt="" />
-              </div>
-
-              <div class="details">
-                <h3>Em Breve...</h3>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veniam, porro dolor nulla aperiam iure, sapiente eligendi est
-                  voluptate debitis eum repudiandae quidem. Voluptate possimus
-                  fugiat placeat natus asperiores ea accusamus.
-                </p>
-
-                <div id="rodape">
-                  <div class="tecnologias">
-                    <img src="assets/icons/html5.svg" alt="" />
-                    <img src="assets/icons/css3.svg" alt="" />
-                    <img src="assets/icons/javascript.svg" alt="" />
+                <article class="card-article card">
+                  <div class="card-image">
+                    <span class="placeholder">Preview</span>
+                    <span class="card-badge">Em breve</span>
                   </div>
-
-                  <div class="local">
-                    <a href="#" class="button">GitHub</a>
-                    <a href="#" class="button">Projeto</a>
+                  <div class="details">
+                    <h3>Em Breve...</h3>
+                    <p>
+                      Descrição do projeto, o problema que resolve e o que foi
+                      construído.
+                    </p>
+                    <div class="tecnologias">
+                      <span class="tech-pill">HTML</span>
+                      <span class="tech-pill">CSS</span>
+                      <span class="tech-pill">JavaScript</span>
+                    </div>
+                    <div class="local">
+                      <a href="#" class="button">GitHub</a>
+                      <a href="#" class="button">Projeto</a>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </article>
+                </article>
 
-            <article class="card__article">
-              <div class="card__image">
-                <img src="assets/images/programmer.png" alt="" />
-              </div>
-
-              <div class="details">
-                <h3>Em Breve...</h3>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veniam, porro dolor nulla aperiam iure, sapiente eligendi est
-                  voluptate debitis eum repudiandae quidem. Voluptate possimus
-                  fugiat placeat natus asperiores ea accusamus.
-                </p>
-
-                <div id="rodape">
-                  <div class="tecnologias">
-                    <img src="assets/icons/html5.svg" alt="" />
-                    <img src="assets/icons/css3.svg" alt="" />
-                    <img src="assets/icons/javascript.svg" alt="" />
+                <article class="card-article card">
+                  <div class="card-image">
+                    <span class="placeholder">Preview</span>
+                    <span class="card-badge">Em breve</span>
                   </div>
-
-                  <div class="local">
-                    <a href="#" class="button">GitHub</a>
-                    <a href="#" class="button">Projeto</a>
+                  <div class="details">
+                    <h3>Em Breve...</h3>
+                    <p>
+                      Descrição do projeto, o problema que resolve e o que foi
+                      construído.
+                    </p>
+                    <div class="tecnologias">
+                      <span class="tech-pill">HTML</span>
+                      <span class="tech-pill">CSS</span>
+                      <span class="tech-pill">JavaScript</span>
+                    </div>
+                    <div class="local">
+                      <a href="#" class="button">GitHub</a>
+                      <a href="#" class="button">Projeto</a>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </article>
+                </article>
 
-            <article class="card__article">
-              <div class="card__image">
-                <img src="assets/images/programmer.png" alt="" />
-              </div>
-
-              <div class="details">
-                <h3>Em Breve...</h3>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veniam, porro dolor nulla aperiam iure, sapiente eligendi est
-                  voluptate debitis eum repudiandae quidem. Voluptate possimus
-                  fugiat placeat natus asperiores ea accusamus.
-                </p>
-
-                <div id="rodape">
-                  <div class="tecnologias">
-                    <img src="assets/icons/html5.svg" alt="" />
-                    <img src="assets/icons/css3.svg" alt="" />
-                    <img src="assets/icons/javascript.svg" alt="" />
+                <article class="card-article card">
+                  <div class="card-image">
+                    <span class="placeholder">Preview</span>
+                    <span class="card-badge">Em breve</span>
                   </div>
-
-                  <div class="local">
-                    <a href="#" class="button">GitHub</a>
-                    <a href="#" class="button">Projeto</a>
+                  <div class="details">
+                    <h3>Em Breve...</h3>
+                    <p>
+                      Descrição do projeto, o problema que resolve e o que foi
+                      construído.
+                    </p>
+                    <div class="tecnologias">
+                      <span class="tech-pill">HTML</span>
+                      <span class="tech-pill">CSS</span>
+                      <span class="tech-pill">JavaScript</span>
+                    </div>
+                    <div class="local">
+                      <a href="#" class="button">GitHub</a>
+                      <a href="#" class="button">Projeto</a>
+                    </div>
                   </div>
-                </div>
+                </article>
               </div>
-            </article>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <footer id="contacts">
-      <h2>Contato</h2>
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">Contato</span>
+          <h2>Vamos <span class="accent">conversar</span></h2>
+          <p>Estou aberto a oportunidades, freelas e colaborações.</p>
+        </header>
 
-      <address>
-        <a href="mailto:jonathan2018.matos@gmail.com" class="contact">
-          <div class="profile">
-            <img src="assets/icons/gmail.svg" class="icon_area" alt="" />
-          </div>
+        <div class="contact-grid">
+          <a
+            href="mailto:jonathan2018.matos@gmail.com"
+            class="contact-card card reveal"
+          >
+            <div class="profile">
+              <img src="assets/icons/gmail.svg" class="icon_area" alt="" />
+            </div>
+            <h3>E-mail</h3>
+            <p>jonathan2018.matos@gmail.com</p>
+          </a>
 
-          <h3>E-mail</h3>
+          <a
+            href="https://www.linkedin.com/in/jonathan-matos-dev-frontend/"
+            target="_blank"
+            rel="noopener"
+            class="contact-card card reveal"
+          >
+            <div class="profile">
+              <img src="assets/icons/linkedin.svg" class="icon_area" alt="" />
+            </div>
+            <h3>LinkedIn</h3>
+            <p>jonathan matos</p>
+          </a>
 
-          <p>jonathan2018.matos@gmail.com</p>
-        </a>
+          <a
+            href="https://discord.gg/svFkVd8VSZ"
+            target="_blank"
+            rel="noopener"
+            class="contact-card card reveal"
+          >
+            <div class="profile">
+              <img src="assets/icons/discord.svg" class="icon_area" alt="" />
+            </div>
+            <h3>Discord</h3>
+            <p>jonathan.matos</p>
+          </a>
+        </div>
 
-        <a
-          href="https://www.linkedin.com/in/jonathan-matos-dev-frontend/"
-          target="_blank"
-          class="contact"
-        >
-          <div class="profile">
-            <img src="assets/icons/linkedin.svg" class="icon_area" alt="" />
-          </div>
-
-          <h3>LinkedIn</h3>
-
-          <p>jonathan matos</p></a
-        >
-        <a href="https://discord.gg/svFkVd8VSZ" target="_blank" class="contact">
-          <div class="profile">
-            <img src="assets/icons/discord.svg" class="icon_area" alt="" />
-          </div>
-
-          <h3>Discord</h3>
-
-          <p>jonathan.matos</p>
-        </a>
-      </address>
-
-      <div class="copy">
-        <p>
-          <span class="copy-style">&copy;</span>
+        <p class="copy">
+          ©
           <strong
-            >Portfólio de <span class="copy-style">Jonathan Matos</span></strong
+            >Portfólio de <span class="accent">Jonathan Matos</span></strong
           >, todos os direitos reservados.
         </p>
       </div>
     </footer>
 
-    <!--====== JavaScript ======-->
+    <script src="scripts/theme.js" defer></script>
     <script src="scripts/menu.js" defer></script>
     <script src="scripts/about.js" defer></script>
+    <script src="scripts/carousel.js" defer></script>
+    <script src="scripts/reveal.js" defer></script>
+    <script src="scripts/tilt.js" defer></script>
   </body>
 </html>
