@@ -1,56 +1,61 @@
-const btnMobile = document.querySelector(".menu-icon");
-const btnIcon = btnMobile.querySelector("img");
+/* ============ MENU MOBILE + SCROLL SPY ============ */
+(function () {
+  "use strict";
 
-function toggleMenu(event) {
-  event.preventDefault();
-  const nav = document.querySelector(".menu-mobile");
-  const isOpen = nav.classList.toggle("active");
+  /* --- Menu mobile --- */
+  var hamburger = document.querySelector(".hamburger");
+  var menu = document.querySelector(".menu-mobile");
+  var backdrop = document.querySelector(".menu-backdrop");
 
-  const open = "assets/icons/menu.svg";
-  const close = "assets/icons/close.svg";
+  if (hamburger && menu) {
+    var toggle = function (open) {
+      hamburger.classList.toggle("is-open", open);
+      menu.classList.toggle("is-open", open);
+      if (backdrop) backdrop.classList.toggle("is-open", open);
+      hamburger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    };
 
-  const newSrc = isOpen ? close : open;
+    hamburger.addEventListener("click", function () {
+      toggle(!menu.classList.contains("is-open"));
+    });
 
-  btnIcon.style.opacity = "0";
-  btnIcon.style.transform = "scale(0.85)";
+    if (backdrop) {
+      backdrop.addEventListener("click", function () { toggle(false); });
+    }
 
-  setTimeout(() => {
-    btnIcon.src = newSrc + "?t=" + Date.now();
-    btnIcon.style.opacity = "1";
-    btnIcon.style.transform = "scale(1)";
-  }, 200);
-}
+    menu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { toggle(false); });
+    });
 
-btnMobile.addEventListener("click", toggleMenu);
-
-const themeToggle = document.querySelectorAll(".theme-mode");
-const body = document.body;
-
-const sunIconPath = "assets/icons/sun.svg";
-const moonIconPath = "assets/icons/moon-black.svg";
-//Troca tema
-function trocarTema(tipo) {
-  if (tipo === true) {
-    body.classList.add("light");
-  } else {
-    body.classList.remove("light");
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("is-open")) {
+        toggle(false);
+      }
+    });
   }
 
-  const iconImages = document.querySelectorAll(".theme-icon img");
+  /* --- Scroll spy --- */
+  var sections = document.querySelectorAll("section[id], footer[id]");
+  var links = document.querySelectorAll(".menu-list a.link, .menu-mobile a.link");
 
-  iconImages.forEach((img) => {
-    const newSrc = tipo ? moonIconPath : sunIconPath;
-    img.src = newSrc + "?t=" + new Date().getTime();
-  });
-}
+  if (!sections.length || !("IntersectionObserver" in window)) return;
 
-const temasalvo = localStorage.getItem("tema");
-trocarTema(temasalvo === "light");
+  var spy = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var id = e.target.id;
+          links.forEach(function (l) {
+            l.classList.toggle(
+              "is-active",
+              l.getAttribute("href") === "#" + id
+            );
+          });
+        }
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
 
-themeToggle.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const islight = body.classList.toggle("light");
-    localStorage.setItem("tema", islight ? "light" : "dark");
-    trocarTema(islight);
-  });
-});
+  sections.forEach(function (s) { spy.observe(s); });
+})();
